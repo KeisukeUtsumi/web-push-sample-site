@@ -100,7 +100,10 @@ function subscribe() {
             .then(function (subscription) {
                 pushButton.disabled = false;
                 console.log(subscription.endpoint)
-
+                $.ajax({
+                    url: 'http://13.112.2.99/register.php?key=' + getSubscriptionId(subscription),
+                    method: 'get'
+                })
                 return sendSubscriptionToServer(subscription);
             })
             .catch(function (e) {
@@ -131,10 +134,22 @@ function showUnsupported() {
     document.querySelector('.unsupported').style.display = 'block';
 }
 
+function getSubscriptionId(subscription) {
+    var mergedEndpoint = endpointWorkaround(subscription);
+    if (mergedEndpoint.indexOf(GCM_ENDPOINT) !== 0) {
+        console.log('This browser isn\'t currently supported for this demo');
+        return "";
+    }
+    var endpointSections = mergedEndpoint.split('/');
+    return endpointSections[endpointSections.length - 1];
+}
+
+
 /**
  * 引数に指定されてEndpointの情報を元にcURLコマンドを作成し表示します。
  */
 function showCurlCommand(mergedEndpoint) {
+    
     if (mergedEndpoint.indexOf(GCM_ENDPOINT) !== 0) {
         console.log('This browser isn\'t currently supported for this demo');
         return;
@@ -147,6 +162,7 @@ function showCurlCommand(mergedEndpoint) {
         ' -d "{\\"registration_ids\\":[\\"' + subscriptionId + '\\"]}"';
 
     curlCommandArea.textContent = "登録したよ！";
+
 
     // コマンドを選択状態にする
     selectCurlText();
