@@ -1,0 +1,28 @@
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>プッシュ通知のサンプル</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Include manifest file in the page -->
+    <link rel="manifest" href="js/manifest.json">
+    <script src="js/main.js" defer></script>
+  </head>
+
+  <body>
+    <div class="supported">
+      <div>
+        <h2>プッシュ通知の配信設定</h2>
+        <p>チェックしてねー（チェックが受取状態</p>
+        <form action="">
+          <input class='tgl tgl-light' id='pushEnableButton' type='checkbox'>
+          <label class='tgl-btn' for='pushEnableButton'></label>
+        </form>
+      </div>
+
+
+      <div id="curlCommand"></div>
+    </div>
+
+  </body>
+</html>

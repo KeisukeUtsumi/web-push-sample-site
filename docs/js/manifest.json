@@ -1,0 +1,11 @@
+{
+  "name": "BrowserPushSample",
+  "short_name": "BrowserPushSample",
+  "icons": [{
+        "src": "wanko_512x512.png",
+        "sizes": "512x512"
+      }],
+  "start_url": "/",
+  "display": "standalone",
+  "gcm_sender_id": "897606361005"
+}
