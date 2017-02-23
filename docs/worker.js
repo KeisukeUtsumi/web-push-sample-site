@@ -10,7 +10,8 @@ self.addEventListener('push', function (event) {
     var rand = Math.floor(Math.random() * 4);
     console.log(rand)
     var tag = "wanko-sample";
-    var url = "";
+    var url = "https://www.amazon.co.jp/dp/B01466G94O/";
+    /*
     switch (rand) {
         case 0:
             url = "https://www.amazon.co.jp/dp/B01466G94O/";
@@ -21,6 +22,7 @@ self.addEventListener('push', function (event) {
         case 3:
             url = "http://goo.jp";
     }
+    */
 
 
     event.waitUntil(
