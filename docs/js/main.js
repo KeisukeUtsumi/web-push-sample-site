@@ -101,7 +101,7 @@ function subscribe() {
                 pushButton.disabled = false;
                 console.log(subscription.endpoint)
                 $.ajax({
-                    url: 'http://13.112.2.99/register.php?key=' + getSubscriptionId(subscription),
+                    url: 'https://utsumi.haroid.io/register.php?key=' + getSubscriptionId(subscription),
                     method: 'get'
                 })
                 return sendSubscriptionToServer(subscription);
